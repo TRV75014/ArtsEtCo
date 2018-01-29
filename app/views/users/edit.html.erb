@@ -1,0 +1,17 @@
+<div class="Account">
+  <div class="container">
+    <div class="form">
+      <center>
+        <h1>Account</h1>
+        <%= form_for(@user) do |f| %>
+          <%= f.email_field :email, :placeholder => "New Email" %><br />
+          <%= f.submit "Update email", class: "btn-submit" %><br />
+        <% end %>
+        <%= form_for(@user) do |f| %>
+          <%= f.password_field :password, :placeholder => "New Password" %><br />
+          <%= f.submit "Update password", class: "btn-submit" %><br />
+        <% end %>
+      </center>
+    </div>
+  </div>
+</div>
