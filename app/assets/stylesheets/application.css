@@ -57,7 +57,7 @@
 #monCanvas {
   float: left;
 	background-color:white;
-  background-image: url('<%= asset_path('Nemours_vuoto_3.jpg')%>');
+  background-image: url('https://i.imgur.com/1cL9kUy.jpg');
 }
 
 
