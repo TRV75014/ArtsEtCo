@@ -3,5 +3,4 @@ class Parameter < ActiveRecord::Base
   validates :nbRectWhite, presence: true
 
   belongs_to :users
-  has_many :paintings
 end
