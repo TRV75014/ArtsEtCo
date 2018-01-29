@@ -21,9 +21,7 @@
     <div class="greetings">
       <center>
         <h2>Hello <%= session[:username] %>!</h2>
-        <%= if Painting.where(:user_id = session[:user_id])  %>
           <p>You have already rated <%= Painting.where(:users_id = session[:users_id]).count() %> paintings!</p>
-        <% end %>
       </center>
     </div>
     <div class="form">
