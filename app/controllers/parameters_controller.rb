@@ -1,6 +1,5 @@
 class ParametersController < ApplicationController
   def home
-    @user_paintings = Painting.find_by user_id: session[:user_id]
     @parameter = Parameter.new
   end
 
