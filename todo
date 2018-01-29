@@ -1,11 +1,25 @@
-1. Log in et Sign in
-2. Vue: Raise error when sign up and log in
-3. Compte du nombre de tableaux
-
-html
-css
-javascript
-nodejs et express
-python et javascript
-matlab
-ruby et rails!
+Mettre un fond blanc
+Fixer bug 'nombre de tableaux notés'
+  Générer
+  Noter
+  Historique
+Ajouter des messages d'erreur dans les formulaires
+  Log In
+  Sign In
+  Générer
+  Noter
+Gestion du compte
+  Mise en place d'un menu déroulant dans le header
+  Modification mot de passe
+  Modification adresse email
+  Suppression du compte
+  Mot de passe oublié
+Ajouter un tableau au favoris
+  Créer modèle favoris
+  Créer controlleur
+  Créer vue: index
+Exporter un tableau au format png
+Dire que l'on n'aime pas un tableau
+Partager un tableau sur les réseaux sociaux
+Avancer le rapport
+Regarder le travail de Patrick
