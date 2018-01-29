@@ -20,6 +20,7 @@ class PaintingsController < ApplicationController
   end
 
   def index
+    @user_paintings = Painting.find_by user_id: session[:user_id]
     @painting = Painting.find_by id: params[:id]
     @mark = @painting.mark
     @JsonData = @painting.JsonData
