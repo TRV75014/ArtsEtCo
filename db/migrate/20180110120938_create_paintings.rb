@@ -4,7 +4,7 @@ class CreatePaintings < ActiveRecord::Migration
 
       t.integer :mark
       t.text :JsonData
-      t.belongs_to :parameters
+      t.belongs_to :users
       t.timestamps null: false
     end
   end
