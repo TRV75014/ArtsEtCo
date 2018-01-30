@@ -1,7 +1,7 @@
 Mettre un fond blanc
+Gestion des sessions utilisateurs ==> Utilisation de cookies ==> Plusieurs utilisateurs connectés en même temps
 
 Fixer bug 'nombre de tableaux notés'
-Gestion des sessions utilisateurs ==> Passage à ActionDispatch::SessionStore
 Ajouter des messages d'erreur dans les formulaires
   Log In
   Sign In
