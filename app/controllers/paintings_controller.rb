@@ -11,7 +11,7 @@ class PaintingsController < ApplicationController
   # home action
   def create
     @painting = Painting.new(painting_params)
-    @painting.parameters_id = session[:parameter_id]
+    @painting.users_id = session[:user_id]
     if @painting.save
       redirect_to '/generate'
     else

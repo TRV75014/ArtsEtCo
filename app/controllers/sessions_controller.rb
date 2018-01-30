@@ -6,6 +6,7 @@ class SessionsController < ApplicationController
     @user = User.find_by(username: params[:session][:username])
     if @user && @user.authenticate(params[:session][:password])
       log_in @user
+      remember @user
       redirect_to '/home'
     else
       flash[:danger] = 'Invalid email/password combination'
@@ -14,8 +15,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    session.delete(:user_id)
-    @current_user = nil
+    log_out if logged_in?
     redirect_to root_url
   end
 end

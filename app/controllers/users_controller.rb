@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  attr_accessor :remember_token
+
   def new
     @user = User.new  # Generates a new User instance and pass it to the view in '/views/users/new.html.erb'
   end
@@ -7,6 +9,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params) #Generate a new User instance using parameters collected from the form
     if @user.save
       log_in @user
+      remember @user
       redirect_to '/home'
     else
       render 'new'
@@ -26,6 +29,9 @@ class UsersController < ApplicationController
     else
       render "/account"
     end
+  end  # Returns a random token.
+  def User.new_token
+    SecureRandom.urlsafe_base64
   end
 
   def delete

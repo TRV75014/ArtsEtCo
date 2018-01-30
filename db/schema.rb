@@ -11,14 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180110132132) do
+ActiveRecord::Schema.define(version: 20180130121404) do
 
   create_table "paintings", force: :cascade do |t|
     t.integer  "mark"
     t.text     "JsonData"
     t.integer  "users_id"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "parameters", force: :cascade do |t|
@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 20180110132132) do
     t.string   "password_digest"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.string   "remember_digest"
   end
 
 end
