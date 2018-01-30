@@ -1,4 +1,4 @@
 class Painting < ActiveRecord::Base
-  validates :mark
+  validates :mark, presence: true
   belongs_to :users
 end
