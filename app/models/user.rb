@@ -12,7 +12,6 @@ class User < ActiveRecord::Base
   validates :username, presence: true
   validates :email, presence: true, email: true
   validates :password, confirmation: true, length: {in: 6..20}
-  validates :password_confirmation, presence: true
 
   has_secure_password # Store the users' passwords as encrypted in the database
   has_many :parameters
