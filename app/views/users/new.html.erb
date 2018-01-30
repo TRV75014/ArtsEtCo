@@ -18,7 +18,7 @@
         <% if flash[:danger] %>
           <div class="danger">
             <ul>
-              <% flash[:danger].each do |msg| %>
+              <% @user.errors.full_messages.each do |msg| %>
                 <li><%= msg %></li>
               <% end %>
             </ul>
