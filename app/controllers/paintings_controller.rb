@@ -11,7 +11,6 @@ class PaintingsController < ApplicationController
   # home action
   def create
     @painting = Painting.new(painting_params)
-    @painting.users_id = session[:user_id]
     if @painting.save
       redirect_to '/generate'
     else
@@ -33,6 +32,6 @@ class PaintingsController < ApplicationController
   private
   # Method to safely collect data from the user's parameters form and store them in the database
   def painting_params
-    params.require(:painting).permit(:mark, :JsonData)
+    params.require(:painting).permit(:mark, :JsonData, session[:user_id])
   end
 end
