@@ -16,9 +16,9 @@
       <center>
         <h1>Sign up</h1>
         <% if flash[:danger] %>
-          <div class="danger"><%= flash[:danger] %></div>
+          <div class="danger"><%= flash[:danger].all %></div>
         <% end %>
-        
+
         <%= form_for(@user) do |f| %>
           <%= f.text_field :username, :placeholder => "Username" %><br />
           <%= f.email_field :email, :placeholder => "Email" %><br />
