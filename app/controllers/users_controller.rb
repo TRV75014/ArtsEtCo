@@ -13,7 +13,7 @@ class UsersController < ApplicationController
       remember @user
       redirect_to '/home'
     else
-      flash[:danger] = @user.errors.messages
+      flash[:danger] = @user.errors.full_messages
       render 'new'
     end
   end

@@ -17,7 +17,7 @@
         <h1>Log in</h1>
         <% if flash[:danger] %>
           <ul>
-            <% flash[:danger].each do |msg| %>
+            <% @user.errors.full_messages.each do |msg| %>
               <li><%= msg %></li>
             <% end %>
           </ul>
