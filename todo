@@ -1,19 +1,27 @@
 Mettre un fond blanc
 Gestion des sessions utilisateurs ==> Utilisation de cookies ==> Plusieurs utilisateurs connectés en même temps
-
 Fixer bug 'nombre de tableaux notés'
-Ajouter des messages d'erreur dans les formulaires
+  Painting.parameters_id prend l'id de l'utilisateur
+
+Fixer historique 15mn
+Ajouter des messages d'erreur dans les formulaires 1h30
   Log In
   Sign In
   Générer
   Noter
-Gestion du compte
+
+
+
+Gestion du compte 3h
   Mise en place d'un menu déroulant dans le header
   Modification mot de passe
   Modification adresse email
   Suppression du compte
   Mot de passe oublié
-Ajouter un tableau au favoris
+
+
+
+Ajouter un tableau au favoris 2h
   Créer modèle favoris
   Créer controlleur
   Créer vue: index

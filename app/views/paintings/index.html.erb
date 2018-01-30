@@ -4,7 +4,7 @@
       <%= link_to "New Painting", '/home', :method => 'get', class: 'link' %>
     </div>
     <div class="account">
-      <%= link_to "Log Out", "logout", :method => 'delete', class: "link" %>
+      <%= link_to "Log Out", logout_path, :method => 'delete', class: "link" %>
     </div>
   </div>
 </header>
@@ -20,13 +20,13 @@
     <div class="greetings">
       <center>
         <h2>Hello <%= session[:username] %>!</h2>
-        <p>You have already rated <%= Painting.count(:conditions => "users_id == session[:user_id]") %> paintings!</p>
+        <p>You have already rated <%= Painting.where('parameters_id = ?', session[:user_id]).count %> paintings!</p>
           <% if params[:id].to_i >1 %>
           <% @new_id = params[:id].to_i-1%>
           <%= link_to "Previous", :id => @new_id%>
         <%end%>
-        <p>Painting <%= params[:id] %>/<%= Painting.count(:joins => "LEFT JOIN parameters.users_id = session[:user_id]") %></p>
-        <% if params[:id].to_i < Painting.count(:joins => "LEFT JOIN parameters.users_id = session[:user_id]") %>
+        <p>Painting <%= params[:id] %>/<%= Painting.where('parameters_id = ?', session[:user_id]).count %></p>
+        <% if params[:id].to_i < Painting.where('parameters_id = ?', session[:user_id]).count %>
           <% @new_id = params[:id].to_i+1%>
           <%= link_to "Next", :id => @new_id%>
         <%end%>
