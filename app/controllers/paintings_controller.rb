@@ -22,7 +22,8 @@ class PaintingsController < ApplicationController
   end
 
   def index
-    @painting = Painting.where(parameters_id: session[:user_id]).find(params[:id])
+    @paintings = Painting.where(parameters_id: session[:user_id]).limit(params[:id])
+    @painting = @paintings[params[:id]-1]
     @mark = @painting.mark
     @JsonData = @painting.JsonData
     @hash = JSON.parse @JsonData
