@@ -21,8 +21,8 @@
     <div class="greetings">
       <center>
         <h2>Hello <%= session[:username] %>!</h2>
-        <% if Painting.where("users.id == ?", session[:user_id]) != nil %>
-          <p>You have already rated <%= Painting.where("users.id == ?", session[:user_id]).count %> paintings!</p>
+        <% if Painting.where("users_id == ?", session[:user_id]) != nil %>
+          <p>You have already rated <%= Painting.where("users_id == ?", session[:user_id]).count %> paintings!</p>
         <% end %>
       </center>
     </div>
