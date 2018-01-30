@@ -1,9 +1,18 @@
+class EmailValidator < ActiveModel::EachValidator
+  def validate_each(record, attribute, value)
+    unless value =~ /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
+      record.errors[attribute] << (options[:message] || "is not an email")
+    end
+  end
+end
+
 class User < ActiveRecord::Base
   attr_accessor :remember_token
-  validates_uniqueness_of :username
+  validates_uniqueness_of :username, :email
   validates :username, presence: true
-  validates :email, presence: true
-  validates :password, presence: true
+  validates :email, presence: true, email: true
+  validates :password, confirmation: true, length: {in: 6..20}
+  validates :password_confirmation, presence: true
 
   has_secure_password # Store the users' passwords as encrypted in the database
   has_many :parameters
