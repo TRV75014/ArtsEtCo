@@ -14,10 +14,11 @@
 	<div class="container">
 		<div class="form">
       <center>
+        <h1>Log in</h1>
         <% if flash[:danger] %>
           <div class="danger"><%= flash[:danger] %></div>
         <% end %>
-        <h1>Log in</h1>
+        
         <%= form_for(:session, url: login_path) do |f| %>
           <%= f.text_field :username, :placeholder => "Username" %><br />
           <%= f.password_field :password, :placeholder => "Password" %><br />

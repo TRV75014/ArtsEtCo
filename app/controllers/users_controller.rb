@@ -7,11 +7,13 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params) #Generate a new User instance using parameters collected from the form
-    if @user.save
+    if @user.valid?
+      @user.save
       log_in @user
       remember @user
       redirect_to '/home'
     else
+      flash[:danger] = @user.errors.messages
       render 'new'
     end
   end
