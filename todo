@@ -1,9 +1,9 @@
 Mettre un fond blanc
 Gestion des sessions utilisateurs ==> Utilisation de cookies ==> Plusieurs utilisateurs connectés en même temps
 Fixer bug 'nombre de tableaux notés'
-  Painting.parameters_id prend l'id de l'utilisateur
-
+Painting.parameters_id prend l'id de l'utilisateur
 Fixer historique 15mn
+
 Ajouter des messages d'erreur dans les formulaires 1h30
   Log In
   Sign In
