@@ -16,7 +16,7 @@
       <center>
         <h1>Sign up</h1>
         <% if flash[:danger] %>
-          <div class="danger"><%= flash[:danger].all %></div>
+          <div class="danger"><%= flash[:danger] %></div>
         <% end %>
 
         <%= form_for(@user) do |f| %>
