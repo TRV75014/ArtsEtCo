@@ -1,8 +1,7 @@
 Mettre un fond blanc
+
 Fixer bug 'nombre de tableaux notés'
-  Générer
-  Noter
-  Historique
+Gestion des sessions utilisateurs ==> Passage à ActionDispatch::SessionStore
 Ajouter des messages d'erreur dans les formulaires
   Log In
   Sign In
