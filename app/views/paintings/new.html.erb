@@ -20,7 +20,7 @@
     <div class="greetings">
       <center>
         <h2>Hello <%= session[:username] %>!</h2>
-        <p>You have already rated <%= Painting.count(:conditions => "users_id == session[:user_id]") %> paintings!</p>
+        <p>You have already rated <%= Painting.where('parameters_id = ?', session[:user_id]).count %> paintings!</p>
       </center>
     </div>
     <div class="form">
