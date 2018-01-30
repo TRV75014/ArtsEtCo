@@ -1,4 +1,6 @@
 class PaintingsController < ApplicationController
+  attr_accessor :users_id
+
   # new action
   def new
     @painting = Painting.new
