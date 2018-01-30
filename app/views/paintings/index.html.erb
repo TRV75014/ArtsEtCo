@@ -20,13 +20,13 @@
     <div class="greetings">
       <center>
         <h2>Hello <%= session[:username] %>!</h2>
-        <p>You have already rated <%= Painting.where('parameters_id = ?', session[:user_id]).count %> paintings!</p>
+        <p>You have already rated <%= Painting.where('users_id = ?', session[:user_id]).count %> paintings!</p>
           <% if params[:id].to_i >1 %>
           <% @new_id = params[:id].to_i-1%>
           <%= link_to "Previous", :id => @new_id%>
         <%end%>
-        <p>Painting <%= params[:id] %>/<%= Painting.where('parameters_id = ?', session[:user_id]).count %></p>
-        <% if params[:id].to_i < Painting.where('parameters_id = ?', session[:user_id]).count %>
+        <p>Painting <%= params[:id] %>/<%= Painting.where('users_id = ?', session[:user_id]).count %></p>
+        <% if params[:id].to_i < Painting.where('users_id = ?', session[:user_id]).count %>
           <% @new_id = params[:id].to_i+1%>
           <%= link_to "Next", :id => @new_id%>
         <%end%>
