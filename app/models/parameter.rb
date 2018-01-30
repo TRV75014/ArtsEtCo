@@ -1,6 +1,6 @@
 class Parameter < ActiveRecord::Base
-  validates :nbRectBlack, presence: true, in: 1..10
-  validates :nbRectWhite, presence: true, in: 1..10
+  validates :nbRectBlack, presence: true
+  validates :nbRectWhite, presence: true
 
   belongs_to :users
 end
