@@ -17,7 +17,11 @@
  .link {
    color: white;
  }
-
+ .danger {
+   padding: 2px;
+   background-color: red;
+   display: table;
+ }
  /* Body and header */
  body {
  	background-color: #FAEDB7;
