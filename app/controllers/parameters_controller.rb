@@ -4,7 +4,6 @@ class ParametersController < ApplicationController
   end
 
   def create
-    @parameter = Parameter.new(parameters_params) #Generate a new User instance using parameters collected from the form
     if @parameter.save
       session[:parameter_id] = @parameter.id
       @parameter.users_id = session[:user_id]
