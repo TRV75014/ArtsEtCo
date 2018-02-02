@@ -23,10 +23,30 @@ Gestion du compte 3h
 
 Ajouter un tableau au favoris 2h
   Créer modèle favoris
-  Créer controlleur
+  Créer controlleurgénération de rectangles blancs marginés avec rectangles noirs (pour éviter petits rectangles)
+entrée du MK : matrice 800*800 (0 blanc 1 noir) OU nombre rectangles fixés
+seuil pour donner note moyenne
+seuil avant d'estimer la note ("We will try to paint more beautiful canvas for you) -> boucle pour générer TANT QUE la note estimée n'est pas supérieure ou égale à une note fixée
   Créer vue: index
 Exporter un tableau au format png
 Dire que l'on n'aime pas un tableau
 Partager un tableau sur les réseaux sociaux
 Avancer le rapport
 Regarder le travail de Patrick
+
+
+Monsieur,
+Afin de faire suite à la réunion de ce matin, nous avons convenus des points suivants:
+- Possibilité de générer 0 rectangles blancs (effectué en live)
+- Fixer le nombre de rectangles noirs à 6 et blanc à 1 pour un utilisateur lambda (Modification par l'admin) ==> Vecteur de dimension fixée
+(Par la suite, nous pourrons tenter d'utiliser le canvas directement plutôt que de passer par les coordonnées des rectangles)
+- Modification du système de notations : Passage à une note entre 0 et 6. L'utilisateur ne doit pas être dérangé
+==> Utilisation d'un système de notations par étoiles
+- Affichage de la note moyenne
+- Avant 50 tableaux notés: Entraînement du modèle
+- Après : On génère des tableaux à partir d'une note seuil. On doit pouvoir comparer la note moyenne sans et avec ML (le rating doit augmenter)
+- Création d'une page d'administration
+  - Modification des paramètres de génération d'un tableau
+  - Accès à la route GET '/users/index' (index des utilisateurs)
+J'ai par ailleurs pu mettre ma convention de stage dans votre casier.
+Bonne journée
