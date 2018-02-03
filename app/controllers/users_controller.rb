@@ -8,6 +8,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params) #Generate a new User instance using parameters collected from the form
     if @user.valid?
+      @user.is_admin = false
       @user.save
       log_in @user
       remember @user
@@ -32,6 +33,27 @@ class UsersController < ApplicationController
       render "/account"
     end
   end  # Returns a random token.
+
+  def index
+    @current_user ||= User.find_by(id: session[:user_id])
+    if current_user.is_admin?
+      @users = User.all
+    else
+      redirect_to '/home'
+    end
+  end
+
+  def admin_update
+    @user_id = session[:admin_update_id]
+    @user = User.find_by(id: @user_id)
+    if @user.is_admin?
+      User.where('id = ?', @user_id).update_all(:is_admin => false)
+    else
+      User.where('id = ?', @user_id).update_all(:is_admin => true)
+    end
+    redirect_to '/users'
+  end
+
   def User.new_token
     SecureRandom.urlsafe_base64
   end

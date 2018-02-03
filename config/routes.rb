@@ -21,6 +21,13 @@ Rails.application.routes.draw do
   get 'history/:id' => 'paintings#index'
   resources :paintings # Create the 7 actions for :paintings (maps HTTP verbs to controller actions automatically)
 
+
+  # Routes for administration
+  get 'users' => 'users#index'  # Access list of users
+  patch 'users' => 'users#admin_update'
+  get 'parameters' => 'parameters#new' # Edit Painting properties
+  post 'parameters' => 'parameters#create'  # Edit Painting properties
+
 #  post 'bookmarks/create' => 'bookmarks#create'
 #  get 'bookmarks/index' => 'bookmarks#index'
 #  delete 'bookmarks/delete' => 'bookmarks#delete'

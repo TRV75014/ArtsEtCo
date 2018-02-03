@@ -9,6 +9,11 @@
       <%= link_to "Account", "account", :method => 'get', class:"link"%>
       <%= link_to "Log Out", "logout", :method => 'delete', class:"link"%>
     </div>
+    <div class="admin">
+      <% if @is_admin %>
+        <%= link_to "Users", "users", :method => 'get', class:"link"%>
+      <% end %>
+    </div>
   </div>
 </header>
 

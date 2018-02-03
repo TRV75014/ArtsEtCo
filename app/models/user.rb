@@ -7,7 +7,7 @@ class EmailValidator < ActiveModel::EachValidator
 end
 
 class User < ActiveRecord::Base
-  attr_accessor :remember_token
+  attr_accessor :remember_token, :is_admin
   validates_uniqueness_of :username, :email
   validates :username, presence: true
   validates :email, presence: true, email: true
@@ -27,6 +27,10 @@ class User < ActiveRecord::Base
   # Returns a random token.
   def User.new_token
     SecureRandom.urlsafe_base64
+  end
+
+  def User.is_admin?
+    return :is_admin
   end
 
   # Remembers a user in the database for use in persistent sessions.

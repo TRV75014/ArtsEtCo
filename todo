@@ -37,16 +37,41 @@ Regarder le travail de Patrick
 
 Monsieur,
 Afin de faire suite à la réunion de ce matin, nous avons convenus des points suivants:
-- Possibilité de générer 0 rectangles blancs (effectué en live)
-- Fixer le nombre de rectangles noirs à 6 et blanc à 1 pour un utilisateur lambda (Modification par l'admin) ==> Vecteur de dimension fixée
+* Possibilité de générer 0 rectangles blancs (effectué en live)
+* Fixer le nombre de rectangles noirs à 6 et blanc à 1 pour un utilisateur lambda (Modification par l'admin) ==> Vecteur de dimension fixée
 (Par la suite, nous pourrons tenter d'utiliser le canvas directement plutôt que de passer par les coordonnées des rectangles)
-- Modification du système de notations : Passage à une note entre 0 et 6. L'utilisateur ne doit pas être dérangé
+* Modification du système de notations : Passage à une note entre 0 et 6. L'utilisateur ne doit pas être dérangé
 ==> Utilisation d'un système de notations par étoiles
-- Affichage de la note moyenne
-- Avant 50 tableaux notés: Entraînement du modèle
+* Affichage de la note moyenne
+* Avant 50 tableaux notés: Entraînement du modèle
 - Après : On génère des tableaux à partir d'une note seuil. On doit pouvoir comparer la note moyenne sans et avec ML (le rating doit augmenter)
-- Création d'une page d'administration
-  - Modification des paramètres de génération d'un tableau
-  - Accès à la route GET '/users/index' (index des utilisateurs)
+* Création d'une page d'administration
+  * Modification des paramètres de génération d'un tableau
+  * Accès à la route GET '/users/index' (index des utilisateurs)
 J'ai par ailleurs pu mettre ma convention de stage dans votre casier.
 Bonne journée
+
+
+
+Création d'un onglet administrateur:
+  * Model
+    * ajout d'un champs is_admin valant true si l'utilisateur est un administrateur
+    * Passer manuellement via la console TRV en administrateur
+  - Vue administrateur :
+    * index des utilisateurs
+    * possibilité de les mettre administrateur
+    - Modification des paramètres du tableau
+
+Fixer le nombre de rectangles:
+  - L'utilisateur n'a plus accès à la Modification des paramètres
+  - Lorsqu'il appuie sur générer, le paramètre va être le dernier de la table paramèter
+  - Celui-ci est définit depuis l'onglet d'administration du site
+
+Modification du système de notations
+  - Reset de la table paintings
+  - Modification du modele painting sur la mark
+  - Modification du formulaire de notations
+  - Chercher pour les étoiles
+  - Modification du controller #home et #generate: calcul de la note moyenne
+  - Modification de la vue: Affichage de la note moyenne
+  - Modification de la vue historique: Affichage de la note attribuée à un tableau

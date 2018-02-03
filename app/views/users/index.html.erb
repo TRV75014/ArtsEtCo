@@ -1,0 +1,42 @@
+<header>
+  <div id="header">
+    <div class="menu">
+      <%= link_to "Home", "home", :method => 'get', class: "link" %>
+      <% if Painting.where('users_id = ?', session[:user_id]).count > 0 %>
+        <%= link_to "History", "/history/1", :method => 'get', class:"link"%>
+      <% end %>
+    </div>
+    <div class="account">
+      <%= link_to "Account", "account", :method => 'get', class:"link"%>
+      <%= link_to "Log Out", "logout", :method => 'delete', class:"link"%>
+    </div>
+  </div>
+</header>
+
+<body>
+  <div class="users">
+    <div class="container">
+      <center>
+        <table>
+          <tr>
+            <td>Username</td>
+            <td>Email</td>
+            <td>is_admin</td>
+            <td>Admin update</td>
+          </tr>
+        <% @users.each do |u| %>
+          <tr>
+            <td><%= u.username %></td>
+            <td><%= u.email %></td>
+            <td><%= u.is_admin? %></td>
+            <% if u.id != session[:user_id] %>
+              <%= session[:admin_update_id] = u.id %>
+              <td><%= link_to "Update", "users", :method => 'patch', class:"link"%></td>
+            <%end%>
+          </tr>
+        <% end %>
+        </table>
+      </center>
+    </div>
+  </div>
+</body>

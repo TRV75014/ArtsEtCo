@@ -1,6 +1,8 @@
 class ParametersController < ApplicationController
   def home
     @parameter = Parameter.new
+    @current_user = User.find_by id: session[:user_id]
+    @is_admin = @current_user.is_admin?
   end
 
   def create
