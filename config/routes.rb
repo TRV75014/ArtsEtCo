@@ -24,7 +24,7 @@ Rails.application.routes.draw do
 
   # Routes for administration
   get 'users' => 'users#index'  # Access list of users
-  patch 'users/:id' => 'users#admin_update'
+  post 'users/:id' => 'users#admin_update'
   get 'parameters' => 'parameters#new' # Edit Painting properties
   post 'parameters' => 'parameters#create'  # Edit Painting properties
 

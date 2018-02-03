@@ -30,7 +30,7 @@
             <td><%= u.email %></td>
             <td><%= u.is_admin? %></td>
             <% if u.id != session[:user_id] %>
-              <td><%= link_to "Update", '/users/'+u.id.to_s, :method => 'patch', class:"link"%></td>
+              <td><%= link_to "Update", '/users/'+u.id.to_s, :method => 'post', class:"link"%></td>
             <%end%>
           </tr>
         <% end %>
