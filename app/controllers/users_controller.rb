@@ -64,6 +64,6 @@ class UsersController < ApplicationController
   private
   # Method to safely collect data from the user's parameters form and store them in the database
   def user_params
-    params.require(:user).permit(:username, :email, :password)
+    params.require(:user).permit(:username, :email, :password, :id)
   end
 end
