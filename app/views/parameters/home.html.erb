@@ -12,6 +12,7 @@
     <div class="admin">
       <% if @is_admin %>
         <%= link_to "Users", "users", :method => 'get', class:"link"%>
+        <%= link_to "Parameters", "parameters", :method => 'get', class:"link"%>
       <% end %>
     </div>
   </div>
@@ -35,24 +36,9 @@
       <center>
       <div class="generate">
         <h1>Painting Properties</h1>
-        <%= form_for @parameter do |p|%>
-        <!--
-          <p>
-            <%= p.label "Number of Blacks" %>
-            <%= p.number_field :nbRectBlack, in: 1..10, step: 1 %>
-          </p>
-          <p>
-            <%= p.label "Number of Whites" %>
-            <%= p.number_field :nbRectWhite, in: 0..10, step: 1 %>
-          </p>
-          <p>
-            <%= p.label "Progressive option" %>
-            <%= p.check_box :progressif %></p>
-          -->
-          <p>
-            <%= p.submit "Generate", class: "btn-submit" %>
-          </p>
-        <% end %>
+        <p>
+          <%= link_to "Generate Painting", "generate", class: "btn-submit" %>
+        </p>
       </div>
       </center>
     </div>

@@ -6,6 +6,7 @@
       <% end %>
     </div>
     <div class="account">
+      <%= link_to "Home", "home", :method => 'get', class:"link"%>
       <%= link_to "Log Out", "logout", :method => 'delete', class:"link"%>
     </div>
   </div>
@@ -27,28 +28,6 @@
     </div>
     <div class="form">
       <center>
-        <div class="generate">
-          <h1>Painting Properties</h1>
-          <%= form_for @parameter do |p|%>
-          <!-- TODO
-            <p>
-              <%= p.label "Number of Blacks" %>
-              <%= p.number_field :nbRectBlack, in: 1..10, step: 1 %>
-            </p>
-            <p>
-              <%= p.label "Number of Whites" %>
-              <%= p.number_field :nbRectWhite, in: 0..10, step: 1 %>
-            </p>
-            <p>
-              <%= p.label "Progressive option" %>
-              <%= p.check_box :progressif%>
-            </p>
-          -->
-            <p>
-              <%= p.submit "Generate", class: "btn-submit" %>
-            </p>
-          <% end %>
-        </div>
         <div class="rating">
           <h1>Rate the painting</h1>
             <%= form_for @painting, :remote=>true do |p|%>
@@ -65,9 +44,9 @@
       </center>
     </div>
     <script>
-      var nbRect = 6;
-      var nbRectWhite = 1;
-      var progressif = true;
+      var nbRect = <%= @nbRectBlack %>;
+      var nbRectWhite = <%= @nbRectWhite %>;
+      var progressif = <%= @progressif %>;
       tableauJSON = genererTableau();
       $(document).ready(function(){
         document.getElementById("hiddenData").value = tableauJSON;

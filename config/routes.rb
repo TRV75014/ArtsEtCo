@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   # Routes for PaintingParametersController
   get 'home' => 'parameters#home' # Link '/home' to Parameter's "new" actions
   post 'home' => 'parameters#create'# Link '/home' post method to Parameter's "create" actions
-  resources :parameters # Create the 7 actions for :parameters (maps HTTP verbs to controller actions automatically)
+  # resources :parameters # Create the 7 actions for :parameters (maps HTTP verbs to controller actions automatically)
 
   # Routes for Painting's controller
   get 'generate' => 'paintings#new' # Link '/generate' to Painting's "new" actions

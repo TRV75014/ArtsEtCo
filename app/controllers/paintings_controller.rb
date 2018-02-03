@@ -4,7 +4,8 @@ class PaintingsController < ApplicationController
   # new action
   def new
     @painting = Painting.new
-    @parameter = Parameter.find_by id: session[:parameter_id]
+    @nbParameters = Parameter.all.count
+    @parameter = Parameter.find(@nbParameters)
     @nbRectBlack = @parameter.nbRectBlack
     @nbRectWhite = @parameter.nbRectWhite
     @progressif = @parameter.progressif

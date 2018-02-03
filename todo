@@ -60,12 +60,12 @@ Création d'un onglet administrateur:
   - Vue administrateur :
     * index des utilisateurs
     * possibilité de les mettre administrateur
-    - Modification des paramètres du tableau
+    * Modification des paramètres du tableau
 
 Fixer le nombre de rectangles:
-  - L'utilisateur n'a plus accès à la Modification des paramètres
-  - Lorsqu'il appuie sur générer, le paramètre va être le dernier de la table paramèter
-  - Celui-ci est définit depuis l'onglet d'administration du site
+  * L'utilisateur n'a plus accès à la Modification des paramètres s'il n'est pas administrateur
+  * Lorsqu'il appuie sur générer, le paramètre correspond au dernier id de la table Parameter
+  * Celui-ci est définit depuis l'onglet d'administration du site
 
 Modification du système de notations
   - Reset de la table paintings
