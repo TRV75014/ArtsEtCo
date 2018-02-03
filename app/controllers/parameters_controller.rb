@@ -30,6 +30,14 @@ class ParametersController < ApplicationController
     @parameter = Parameter.find(@nbParameters)
     @current_user = User.find_by id: session[:user_id]
     @is_admin = @current_user.is_admin?
+
+    # note moyenne
+    @paintings = Painting.where(users_id: session[:user_id])
+    @note_moyenne = 0.0
+    @paintings.each do |p|
+      @note_moyenne = @note_moyenne+ p.mark
+    end
+    @note_moyenne /= @paintings.size
   end
 
   private

@@ -9,6 +9,14 @@ class PaintingsController < ApplicationController
     @nbRectBlack = @parameter.nbRectBlack
     @nbRectWhite = @parameter.nbRectWhite
     @progressif = @parameter.progressif
+
+    # note moyenne
+    @paintings = Painting.where(users_id: session[:user_id])
+    @note_moyenne = 0.0
+    @paintings.each do |p|
+      @note_moyenne = @note_moyenne+ p.mark
+    end
+    @note_moyenne /= @paintings.size
   end
 
   # home action

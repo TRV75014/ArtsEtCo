@@ -20,6 +20,7 @@
     <div class="greetings">
       <center>
         <h2>Hello <%= session[:username] %>!</h2>
+        <p> Mark: <%= @mark %>
         <p>You have already rated <%= Painting.where('users_id = ?', session[:user_id]).count %> paintings!</p>
           <% if params[:id].to_i >1 %>
           <% @new_id = params[:id].to_i-1%>

@@ -23,7 +23,8 @@
     <div class="greetings">
       <center>
         <h2>Hello <%= session[:username] %>!</h2>
-        <p>You have already rated <%= Painting.where('users_id = ?', session[:user_id]).count %> paintings!</p>
+        <p>You have already rated <%= Painting.where('users_id = ?', session[:user_id]).count %> paintings!
+        <br />Votre moyenne est <%= @note_moyenne %></p>
       </center>
     </div>
     <div class="form">
@@ -33,7 +34,7 @@
             <%= form_for @painting, :remote=>true do |p|%>
               <p>
                 <%= p.label "Rate" %>
-                <%= p.number_field :mark, in: 1..5, step: 1 %>
+                <%= p.number_field :mark, in: 0..6, step: 1 %>
               </p>
               <p>
                 <%= p.hidden_field :JsonData, :id => "hiddenData", :value => "" %>

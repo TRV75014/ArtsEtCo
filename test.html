@@ -1,0 +1,50 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>StarRating</title>
+<script type='text/javascript'>
+var done=false
+var pic = new Array();
+pic[0]=new Image();
+pic[0].src="star1.gif";
+pic[1]=new Image();
+pic[1].src="star2.gif";
+var bareme = new Array("peu ","passablement ","moyennement","presque","")
+
+ function rate(level){
+ if (done){return false;}
+  for(i=1;i<7;i++){ document.getElementById('_'+i).src=(level<i)?pic[0].src:pic[1].src;
+  document.getElementById('vote').innerHTML="Votre vote : "+level+" étoile(s)   "+bareme[level-1]+" satisfaisant"
+  }
+  }
+
+ function zero(){
+     for(i=1;i<7;i++){ document.getElementById('_'+i).src=pic[0].src;
+     done=false;
+     document.getElementById('vote').innerHTML="Votre vote : 0 étoile(s)"
+
+     }
+     }
+ function valider(){
+ done=true;
+ document.getElementById('vote').innerHTML+='   VALID&Eacute;'
+ }
+
+  </script>
+</head>
+
+<body>
+Clickez sur l'étoile de votre choix pour valider le vote:<br /><br />
+<img src="star1.gif" id='_1' onclick="valider()" onmouseover="rate(1)" /><img src="star1.gif" id='_2' onclick="valider()"  onmouseover="rate(2)" /><img src="star1.gif" id='_3' onclick="valider()"  onmouseover="rate(3)" /><img src="star1.gif" id='_4' onclick="valider()"  onmouseover="rate(4)"  /><img src="star1.gif" id='_5' onclick="valider()"  onmouseover="rate(5)"  /><img src="star1.gif" id='_6' onclick="valider()" onmouseover="rate(6)" />
+<br /><br/>
+<div id="vote">Votre vote : 0 étoile(s) </div><br /><br/>
+<input type="button" onclick="zero();" value="reset"/>
+</body>
+<select name="city_id" id="city_id">
+  <option value="1">Lisbon</option>
+  <option value="2">Madrid</option>
+  ...
+  <option value="12">Berlin</option>
+</select>
+</html>
