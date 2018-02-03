@@ -54,7 +54,7 @@ Bonne journée
 
 
 Création d'un onglet administrateur:
-  * Model
+  - Model
     * ajout d'un champs is_admin valant true si l'utilisateur est un administrateur
     * Passer manuellement via la console TRV en administrateur
   - Vue administrateur :
