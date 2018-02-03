@@ -26,7 +26,7 @@ Rails.application.routes.draw do
   get 'users' => 'users#index'  # Access list of users
   patch 'users' => 'users#admin_update'
   get 'parameters' => 'parameters#new' # Edit Painting properties
-  post 'parameters' => 'parameters#create'  # Edit Painting properties
+  post 'parameters/:id' => 'parameters#create'  # Edit Painting properties
 
 #  post 'bookmarks/create' => 'bookmarks#create'
 #  get 'bookmarks/index' => 'bookmarks#index'
