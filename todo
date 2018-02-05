@@ -68,12 +68,13 @@ Fixer le nombre de rectangles:
   * Celui-ci est définit depuis l'onglet d'administration du site
 
 Modification du système de notations
-  - Reset de la table paintings
-  - intégration du système d'étoile dans la Vue. Le click sur une étoile sélectionne la note
-  La note s'affiche. Travail au niveau des routes
-  Bouton valider
+  * Passage à un système de radio_button plus 'user-friendly' pour noter un tableau
+  * Les notes sont comprises désormais entre 0 et 6
 
 Calcul note moyenne
   * Modification du controller #home et #generate: calcul de la note moyenne
   * Modification de la vue: Affichage de la note moyenne
-  - Modification de la vue historique: Affichage de la note attribuée à un tableau
+  * Modification de la vue historique: Affichage de la note attribuée à un tableau
+
+Modèle de ML
+  * Indiquer à l'utilisateur le nombre de tableaux restants avant utilisation du modèle

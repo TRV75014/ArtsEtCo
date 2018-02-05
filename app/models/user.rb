@@ -7,7 +7,7 @@ class EmailValidator < ActiveModel::EachValidator
 end
 
 class User < ActiveRecord::Base
-  attr_accessor :remember_token, :is_admin
+  attr_accessor :remember_token
   validates_uniqueness_of :username, :email
   validates :username, presence: true
   validates :email, presence: true, email: true

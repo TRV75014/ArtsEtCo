@@ -24,17 +24,22 @@
       <center>
         <h2>Hello <%= session[:username] %>!</h2>
         <p>You have already rated <%= Painting.where('users_id = ?', session[:user_id]).count %> paintings!
-        <br />Votre moyenne est <%= @note_moyenne %></p>
+        <br />Your average rating is <%= @note_moyenne %></p>
+        <p>You still need to rate <%= 50-Painting.where('users_id = ?', session[:user_id]).count %> before using our ML model</p>
       </center>
     </div>
     <div class="form">
       <center>
         <div class="rating">
           <h1>Rate the painting</h1>
-            <%= form_for @painting, :remote=>true do |p|%>
+            <%= form_for @painting do |p| %>
               <p>
-                <%= p.label "Rate" %>
-                <%= p.number_field :mark, in: 0..6, step: 1 %>
+                <div class="stars">
+                <% 7.times do |m| %>
+                  <%= p.label m %>
+                  <%= p.radio_button(:mark, m) %>
+                <% end%>
+                </div>
               </p>
               <p>
                 <%= p.hidden_field :JsonData, :id => "hiddenData", :value => "" %>
