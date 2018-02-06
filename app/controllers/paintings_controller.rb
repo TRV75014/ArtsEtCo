@@ -1,4 +1,4 @@
-require 'libsvm'
+# require 'libsvm'
 
 class PaintingsController < ApplicationController
   attr_accessor :users_id

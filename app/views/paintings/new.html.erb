@@ -1,17 +1,3 @@
-<header>
-  <div id="header">
-    <div class="menu">
-      <% if Painting.where('users_id = ?', session[:user_id]).count > 0 %>
-        <%= link_to "History", "/history/1", :method => 'get', class:"link"%>
-      <% end %>
-    </div>
-    <div class="account">
-      <%= link_to "Home", "home", :method => 'get', class:"link"%>
-      <%= link_to "Log Out", "logout", :method => 'delete', class:"link"%>
-    </div>
-  </div>
-</header>
-
 <body>
   <div id="canevas">
     <canvas id="monCanvas" width="800" height="800">
