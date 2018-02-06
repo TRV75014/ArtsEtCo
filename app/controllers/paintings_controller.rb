@@ -1,6 +1,9 @@
 # require 'libsvm'
 
 class PaintingsController < ApplicationController
+  include UsersHelper
+  include PaintingsHelper
+
   attr_accessor :users_id
 
   # new action
@@ -11,29 +14,46 @@ class PaintingsController < ApplicationController
     @nbRectBlack = @parameter.nbRectBlack
     @nbRectWhite = @parameter.nbRectWhite
     @progressif = @parameter.progressif
-    # @pred = test
-    # note moyenne
-    @paintings = Painting.where(users_id: session[:user_id])
-    @note_moyenne = 0.0
-    @paintings.each do |p|
-      @note_moyenne = @note_moyenne+ p.mark
+#    if tableaux_notes >= tableaux_mini
+#      @pred = liblinear_svm(@painting)
+#      if @pred > 4
+#        render :new
+#      else
+#        redirect_to '/generate'
+#      end
+    #end
+  end
+
+  def ml
+    @painting = Painting.new(painting_params)
+    if tableaux_notes >= tableaux_mini
+      @pred = liblinear_svm(@painting)
+      if @pred > 4
+        render :new
+      else
+        redirect_to '/generate'
+      end
+    else
+      render :new
     end
-    @note_moyenne /= @paintings.size
   end
 
   # home action
   def create
     @painting = Painting.new(painting_params)
-    @painting.users_id = session[:user_id]
+    @painting.users_id = session_user_id
+    if tableaux_notes >= tableaux_mini
+      @painting.is_ml = true
+    end
     if @painting.save
       redirect_to '/generate'
     else
-      render 'generate'
+      render :new
     end
   end
 
   def index
-    @paintings = Painting.where(users_id: session[:user_id]).limit(params[:id])
+    @paintings = Painting.where(users_id: current_user).limit(params[:id])
     @painting = @paintings.last
     @mark = @painting.mark
     @JsonData = @painting.JsonData
@@ -47,7 +67,7 @@ class PaintingsController < ApplicationController
   private
   # Method to safely collect data from the user's parameters form and store them in the database
   def painting_params
-    params.require(:painting).permit(:mark, :JsonData, session[:user_id])
+    params.require(:painting).permit(:mark, :JsonData)
   end
 
   #

@@ -1,0 +1,51 @@
+DONE:
+- Suppression du modèle User
+- Suppression des controllers Users et Sessions
+- Ajout du gem devise
+- Configuration basique de devise
+- Ajout d'une règle sur les routes root : Un utilisateur non-connecté est redirigé vers la page
+      de connexion; sinon, sur la page '/home'
+- Edition du formulaire d'inscription pour rajouter la colonne username
+- Edition du fichier ApplicationController pour passer le paramètre username lors de la validation
+  de l'inscription
+- Edition du header
+- Ajout de fonctionnalités dans le helper user
+
+TO DO:
+- Modifier le modèle tableaux
+    - ajout du champs is_ml pour le calcul de la moyenne: DONE
+    - Calcul de la note moyenne sans et avec ml: DONE
+    - Modification de la vue : DONE
+- Remise en place de l'historique des tableaux_notes : DONE
+- Mettre en place l'apprentissage automatique
+    - Création table note machine learning et painting_id : DONE
+    - Mettre en place un modèle définissant le nombre minimum de tableaux devant
+      être noté pour lancer la procédure : DONE
+    - Modifier la procédure de génération de tableaux
+        - créer une table Notes avec note et is_ml valant false par défault et un champs user et tableaux
+        - éditer la table painting pour retirer la note
+        - reset de la base de données
+        - reprise du helper de painting pour note
+        - reprise du controller mark et painting de pje-sysico-push_old
+    - Ajouter paramètre note_mini dans ModelParameter
+@ PATRICCK:    - Champs utilisateur admin pour modifier ce modèle
+- Export csv des utilisateurs et des données sur les tableaux
+- Migration heroku
+  - Reset de la base
+  - configuration pour devise_controller
+  - mise en place du mailer
+
+- Commencer à configurer ratyrate en local
+- Export des données concernant les tableaux
+
+
+
+
+@ Patrick:
+- Faire le rendu pour les pages d'inscription et de connexion
+- Faire un header Propre
+      (ajout d'un menu ?
+       Le header ne servirait qu'alors que pour identifier l'utilisateur, et le déconnecter)
+- Réflexion sur le design des pages
+- Terminer la procédure d'installation
+- Page d'histoire des tableaux

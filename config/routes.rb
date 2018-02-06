@@ -1,14 +1,15 @@
 Rails.application.routes.draw do
+
   # Routes for User's controller (User's management)
-  get 'signin' => 'users#new' # Link '/signin' to User's "new" actions
-  post 'signin' => 'users#create'
-  get 'account' => 'users#edit'
-  resources :users # Create the 7 actions for :users (maps HTTP verbs to controller actions automatically)
+#  get 'signin' => 'users#new' # Link '/signin' to User's "new" actions
+#  post 'signin' => 'users#create'
+#  get 'account' => 'users#edit'
+#  resources :users # Create the 7 actions for :users (maps HTTP verbs to controller actions automatically)
 
   # Routes for Session's controller (controll active user's sessions)
-  get 'login' => 'sessions#new' # Link '/login' to Session's "new" actions
-  post 'login' => 'sessions#create' # Link '/login' post method to Session's "create" actions
-  delete 'logout' => 'sessions#destroy' # Link '/logout' destroy method to Session's "destroy" actions
+#  get 'login' => 'sessions#new' # Link '/login' to Session's "new" actions
+#  post 'login' => 'sessions#create' # Link '/login' post method to Session's "create" actions
+#  delete 'logout' => 'sessions#destroy' # Link '/logout' destroy method to Session's "destroy" actions
 
   # Routes for PaintingParametersController
   get 'home' => 'parameters#home' # Link '/home' to Parameter's "new" actions
@@ -23,8 +24,8 @@ Rails.application.routes.draw do
 
 
   # Routes for administration
-  get 'users' => 'users#index'  # Access list of users
-  post 'users/:id' => 'users#admin_update'
+  #get 'users' => 'users#index'  # Access list of users
+  #post 'users/:id' => 'users#admin_update'
   get 'parameters' => 'parameters#new' # Edit Painting properties
   post 'parameters' => 'parameters#create'  # Edit Painting properties
 
@@ -32,7 +33,19 @@ Rails.application.routes.draw do
 #  get 'bookmarks/index' => 'bookmarks#index'
 #  delete 'bookmarks/delete' => 'bookmarks#delete'
 
-  root "sessions#new" # Set the root to get to Session's "new" actions
+
+
+devise_for :users
+
+devise_scope :user do
+  authenticated :user do
+    root 'parameters#home', as: :authenticated_root
+  end
+
+  unauthenticated do
+    root 'devise/sessions#new', as: :unauthenticated_root
+  end
+end # Set the root to get to Session's "new" actions
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

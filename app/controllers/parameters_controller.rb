@@ -1,4 +1,5 @@
 class ParametersController < ApplicationController
+  include UsersHelper
   def new
     @parameter = Parameter.new
   end
@@ -29,7 +30,7 @@ class ParametersController < ApplicationController
     @nbParameters = Parameter.all.count
     @parameter = Parameter.find(@nbParameters)
     @current_user = User.find_by id: session[:user_id]
-    @is_admin = @current_user.is_admin?
+    #@is_admin = @current_user.is_admin?
 
     # note moyenne
     @paintings = Painting.where(users_id: session[:user_id])

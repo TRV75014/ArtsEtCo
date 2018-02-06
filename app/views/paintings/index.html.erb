@@ -8,15 +8,15 @@
   <div id="container">
     <div class="greetings">
       <center>
-        <h2>Hello <%= session[:username] %>!</h2>
-        <p> Mark: <%= @mark %>
-        <p>You have already rated <%= Painting.where('users_id = ?', session[:user_id]).count %> paintings!</p>
+        <h2>Hello <%= username %>!</h2>
+        <p> Mark: <%= @mark %></p>
+        <p>Vous avez noté <%= tableaux_notes %> tableaux!</p>
           <% if params[:id].to_i >1 %>
           <% @new_id = params[:id].to_i-1%>
           <%= link_to "Previous", :id => @new_id%>
         <%end%>
-        <p>Painting <%= params[:id] %>/<%= Painting.where('users_id = ?', session[:user_id]).count %></p>
-        <% if params[:id].to_i < Painting.where('users_id = ?', session[:user_id]).count %>
+        <p>Painting <%= params[:id] %>/<%= tableaux_notes %></p>
+        <% if params[:id].to_i < tableaux_notes %>
           <% @new_id = params[:id].to_i+1%>
           <%= link_to "Next", :id => @new_id%>
         <%end%>

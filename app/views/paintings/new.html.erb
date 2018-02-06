@@ -8,11 +8,17 @@
   <div id="container">
     <div class="greetings">
       <center>
-        <h2>Hello <%= session[:username] %>!</h2>
+        <h2>Bonjout <%= username %>!</h2>
 <!--        <p><%= @pred %></p> -->
-        <p>You have already rated <%= Painting.where('users_id = ?', session[:user_id]).count %> paintings!
-        <br />Your average rating is <%= @note_moyenne %></p>
-        <p>You still need to rate <%= 50-Painting.where('users_id = ?', session[:user_id]).count %> before using our ML model</p>
+        <p>Vous avez noté <%= tableaux_notes %> tableaux!</p>
+        <% if tableaux_notes < 50%>
+          <br />Note moyenne : <%= note_moyenne_sans_ml %></p>
+          <p>You still need to rate <%= 50-tableaux_notes %> before using our ML model</p>
+        <% else %>
+          <br />Note moyenne sans algorithme : <%= note_moyenne_sans_ml %></p>
+          <br />Note moyenne avec algorithme : <%= note_moyenne_ml %></p>
+          </p>
+        <%end%>
       </center>
     </div>
     <div class="form">

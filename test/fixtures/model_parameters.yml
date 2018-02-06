@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nom_modele: MyString
+  tableaux_mini: 1
+
+two:
+  nom_modele: MyString
+  tableaux_mini: 1

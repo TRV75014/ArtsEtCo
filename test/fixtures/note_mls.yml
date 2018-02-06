@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  note: 
+  paintings_id: 
+
+two:
+  note: 
+  paintings_id: 
