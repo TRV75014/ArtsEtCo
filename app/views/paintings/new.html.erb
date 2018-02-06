@@ -23,6 +23,7 @@
     <div class="greetings">
       <center>
         <h2>Hello <%= session[:username] %>!</h2>
+<!--        <p><%= @pred %></p> -->
         <p>You have already rated <%= Painting.where('users_id = ?', session[:user_id]).count %> paintings!
         <br />Your average rating is <%= @note_moyenne %></p>
         <p>You still need to rate <%= 50-Painting.where('users_id = ?', session[:user_id]).count %> before using our ML model</p>

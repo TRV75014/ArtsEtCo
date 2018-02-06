@@ -44,8 +44,7 @@ class UsersController < ApplicationController
   end
 
   def admin_update
-    @user_id = params[:id]
-    @user = User.find_by(id: @user_id)
+    @user = User.find_by(id: params[:id])
     if @user.is_admin?
       User.where('id = ?', @user_id).update_all(:is_admin => false)
     else

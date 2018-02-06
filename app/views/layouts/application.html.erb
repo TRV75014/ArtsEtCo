@@ -10,6 +10,36 @@
 <body>
 
 <%= yield %>
-
+<div id="header">
+  <% if logged_in? %>
+  <div class="menu">
+    <% if Painting.where('users_id = ?', session[:user_id]).count > 0 %>
+      <%= link_to "History", "/history/1", :method => 'get', class:"link"%>
+    <% end %>
+  </div>
+  <div class="account">
+    <%= link_to "Account", "account", :method => 'get', class:"link"%>
+    <%= link_to "Log Out", "logout", :method => 'delete', class:"link"%>
+  </div>
+  <div class="admin">
+    <% if @is_admin %>
+      <%= link_to "Users", "users", :method => 'get', class:"link"%>
+      <%= link_to "Parameters", "parameters", :method => 'get', class:"link"%>
+    <% end %>
+  </div>
+  <%else%>
+  <header>
+    <div id="header">
+      <div class="signin">
+        <%= link_to "Sign Up", "signin", class:"link" %>
+      </div>
+      ||
+      <div class="login">
+        <%= link_to "Log In", "login", class:"link" %>
+      </div>
+    </div>
+  </header>
+  <% end %>
+</div>
 </body>
 </html>
