@@ -115,7 +115,6 @@ GEM
     rb-fsevent (0.10.2)
     rb-inotify (0.9.10)
       ffi (>= 0.5.0, < 2)
-    rb-libsvm (1.4.0)
     rdoc (4.3.0)
     sass (3.5.5)
       sass-listen (~> 4.0.0)
@@ -169,7 +168,6 @@ DEPENDENCIES
   pg (~> 0.20)
   rails (= 4.2.6)
   rails_12factor
-  rb-libsvm
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
   spring
