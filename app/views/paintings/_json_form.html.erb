@@ -1,0 +1,8 @@
+<div class="json">
+    <%= form_for @painting, :html => { :id => 'json'} do |p| %>
+      <p>
+        <%= p.hidden_field :JsonData, :id => "hiddenData", :value => "" %>
+        <%= p.submit "Json", class: "btn-submit" %>
+      </p>
+    <% end %>
+</div>

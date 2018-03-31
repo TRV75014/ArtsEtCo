@@ -1,4 +1,4 @@
 class Painting < ActiveRecord::Base
-  validates :mark, presence: true
+  ratyrate_rateable 'Note'
   belongs_to :users
 end

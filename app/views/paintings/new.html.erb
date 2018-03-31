@@ -6,42 +6,14 @@
   </div>
 
   <div id="container">
-    <div class="greetings">
-      <center>
-        <h2>Bonjout <%= username %>!</h2>
-<!--        <p><%= @pred %></p> -->
-        <p>Vous avez noté <%= tableaux_notes %> tableaux!</p>
-        <% if tableaux_notes < 50%>
-          <br />Note moyenne : <%= note_moyenne_sans_ml %></p>
-          <p>You still need to rate <%= 50-tableaux_notes %> before using our ML model</p>
-        <% else %>
-          <br />Note moyenne sans algorithme : <%= note_moyenne_sans_ml %></p>
-          <br />Note moyenne avec algorithme : <%= note_moyenne_ml %></p>
-          </p>
-        <%end%>
-      </center>
-    </div>
     <div class="form">
       <center>
-        <div class="rating">
-          <h1>Rate the painting</h1>
-            <%= form_for @painting do |p| %>
-              <p>
-                <div class="stars">
-                <% 7.times do |m| %>
-                  <%= p.label m %>
-                  <%= p.radio_button(:mark, m) %>
-                <% end%>
-                </div>
-              </p>
-              <p>
-                <%= p.hidden_field :JsonData, :id => "hiddenData", :value => "" %>
-                <%= p.submit "Rate", class: "btn-submit" %>
-              </p>
-            <% end %>
-        </div>
+        <%=render "paintings/json_form"%>
       </center>
     </div>
+
+
+
     <script>
       var nbRect = <%= @nbRectBlack %>;
       var nbRectWhite = <%= @nbRectWhite %>;
@@ -49,6 +21,7 @@
       tableauJSON = genererTableau();
       $(document).ready(function(){
         document.getElementById("hiddenData").value = tableauJSON;
+        document.getElementById("json").submit();
       })
     </script>
   </div>

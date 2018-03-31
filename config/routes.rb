@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  post '/rate' => 'rater#create', :as => 'rate'
   # Routes for User's controller (User's management)
 #  get 'signin' => 'users#new' # Link '/signin' to User's "new" actions
 #  post 'signin' => 'users#create'

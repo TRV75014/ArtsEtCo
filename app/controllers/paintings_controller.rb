@@ -14,29 +14,9 @@ class PaintingsController < ApplicationController
     @nbRectBlack = @parameter.nbRectBlack
     @nbRectWhite = @parameter.nbRectWhite
     @progressif = @parameter.progressif
-#    if tableaux_notes >= tableaux_mini
-#      @pred = liblinear_svm(@painting)
-#      if @pred > 4
-#        render :new
-#      else
-#        redirect_to '/generate'
-#      end
-    #end
   end
 
-  def ml
-    @painting = Painting.new(painting_params)
-    if tableaux_notes >= tableaux_mini
-      @pred = liblinear_svm(@painting)
-      if @pred > 4
-        render :new
-      else
-        redirect_to '/generate'
-      end
-    else
-      render :new
-    end
-  end
+
 
   # home action
   def create
@@ -46,22 +26,39 @@ class PaintingsController < ApplicationController
       @painting.is_ml = true
     end
     if @painting.save
-      redirect_to '/generate'
+      redirect_to painting_path(@painting.id)
     else
       render :new
     end
   end
 
   def index
-    @paintings = Painting.where(users_id: current_user).limit(params[:id])
-    @painting = @paintings.last
-    @mark = @painting.mark
+    @painting_id = id_tableaux_notes[params[:id].to_i-1]
+    @painting = Painting.find(@painting_id)
     @JsonData = @painting.JsonData
     @hash = JSON.parse @JsonData
     @RectBlack = @hash['RectBlack']
     @RectWhite = @hash['RectWhite']
     @nbBlacks = @RectBlack.size
     @nbWhites = @RectWhite.size
+  end
+
+  def show
+    @painting = Painting.find(params[:id])
+    @JsonData = @painting.JsonData
+    @hash = JSON.parse @JsonData
+    @RectBlack = @hash['RectBlack']
+    @RectWhite = @hash['RectWhite']
+    @nbBlacks = @RectBlack.size
+    @nbWhites = @RectWhite.size
+    if tableaux_notes >= tableaux_mini
+      @pred = liblinear_svm(@painting)
+      if @pred > 2
+        render :show
+      else
+        redirect_to '/generate'
+      end
+    end
   end
 
   private

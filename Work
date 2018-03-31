@@ -22,12 +22,18 @@ TO DO:
     - Mettre en place un modèle définissant le nombre minimum de tableaux devant
       être noté pour lancer la procédure : DONE
     - Modifier la procédure de génération de tableaux
-        - créer une table Notes avec note et is_ml valant false par défault et un champs user et tableaux
-        - éditer la table painting pour retirer la note
-        - reset de la base de données
-        - reprise du helper de painting pour note
-        - reprise du controller mark et painting de pje-sysico-push_old
+        - éditer la table painting pour retirer la note : DONE
+        - Installer ratyrate pour créer la table note
+        - Editer les modèles painting et user pour configurer raty_rate : DONE
+        - Sauvegarde lors de la création du tableau dans le controller painting : DONE
+        - Rediriger  '/generate' vers '/rate' : DONE
+        - Réaliser vue de notation : DONE
+        - Adapter les scripts de calcul de note moyenne : DONE
+    - helper tableaux
+        - liste des tableaux notés : DONE
+        - clear memory
     - Ajouter paramètre note_mini dans ModelParameter
+    - Réaliser le controller et la vue correspondant à ModelParameter
 @ PATRICCK:    - Champs utilisateur admin pour modifier ce modèle
 - Export csv des utilisateurs et des données sur les tableaux
 - Migration heroku
@@ -35,7 +41,6 @@ TO DO:
   - configuration pour devise_controller
   - mise en place du mailer
 
-- Commencer à configurer ratyrate en local
 - Export des données concernant les tableaux
 
 

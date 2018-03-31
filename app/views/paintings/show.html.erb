@@ -20,14 +20,23 @@
         <%end%>
       </center>
     </div>
+
+
+
     <div class="form">
       <center>
-      <div class="generate">
-        <p>
-          <%= link_to "Générer un tableau", "generate", class: "btn-submit" %>
-        </p>
-      </div>
+        Note : <%= rating_for @painting, "Note" %>
       </center>
     </div>
+
+
+
+    <script>
+      var rectangles = <%= @RectBlack %>;
+      var rectanglesWhite = <%= @RectWhite %>;
+      var nbRect = <%= @nbBlacks %>;
+      var nbRectWhite = <%= @nbWhites %>;
+      x= getPainting();
+    </script>
   </div>
 </body>
